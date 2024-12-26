@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامج لحساب الزكاة </title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px auto;
+            width: fit-content;
+        }
+        .form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px auto;
+        }
+        input[type="number"] {
+            padding: 10px;
+            margin: 0 5px;
+            width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: rgb(12, 73, 73);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            
+        }
+        .result {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px auto;
+            background-color: #ddd;
+            width: fit-content;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 30px;
+            color: #fff;
+            background-color:#0c8d77 ;
+            
+        }
+    </style>
+    <h1>برنامج لحساب الزكاة</h1>
+    <form action="" class="form">
+        <input type="number" name="number" >
+        <input type="submit" name="send" value="ارسال" >
+    </form>
+    <div class="result"></div>
+    <script>
+        let h1 = document.querySelector("h1");
+        let input = document.querySelector("input");
+        let form = document.querySelector("form");
+        let result = document.querySelector(".result");
+        let send = document.querySelector("input[type='submit']");
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            let number = input.value;
+            if (number < 0) {
+                result.innerHTML = "الرجاء ادخال رقم اكبر من صفر";
+            } else if (number < 85) {
+                result.innerHTML = "لا يوجد زكاة";
+            } else {
+                let zakat = number * 0.025;
+                result.innerHTML = `الزكاة المستحقة هي: ${Math.round(zakat)} جنيه`;
+            }
+        });
+
+
+
+      
+
+
+    </script>
+    
+</body>
+</html>
